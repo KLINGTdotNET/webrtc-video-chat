@@ -88,5 +88,5 @@ body {
 }
 
 .ds-video-filter {
-    -webkit-filter: grayscale(1);
+    -webkit-filter: contrast(1.4) brightness(1.4);
 }
