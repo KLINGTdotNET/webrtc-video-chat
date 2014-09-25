@@ -23,8 +23,18 @@ darkStar.main = function(){
         }
     }
 
+    function speechSynth(textMsg) {
+        if ('speechSynthesis' in window) {
+            var msg = new SpeechSynthesisUtterance(textMsg);
+            msg.lang = "de-DE";
+            msg.volume = 1;
+            window.speechSynthesis.speak(msg);
+        }
+    }
+
     return {
-        'resizeChatDiv': resizeChatDiv
+        'resizeChatDiv': resizeChatDiv,
+        'speak': speechSynth
     }
 }();
 
