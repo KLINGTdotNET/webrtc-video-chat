@@ -8,6 +8,13 @@
     src: url('../fonts/fs_blok.ttf');
 }
 
+html {
+    -webkit-text-size-adjust:none;
+    -ms-text-size-adjust:none;
+    -moz-text-size-adjust:none;
+    text-size-adjust:none;
+}
+
 body {
     width: 100%;
     margin: 0;
