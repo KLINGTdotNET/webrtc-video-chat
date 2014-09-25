@@ -81,3 +81,8 @@ body {
     top: 50%;
     transform: translateY(-50%);
 }
+
+#video {
+    width: 100%;
+    height: 100%;
+}
