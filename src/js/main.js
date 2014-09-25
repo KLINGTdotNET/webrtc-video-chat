@@ -101,6 +101,7 @@ darkStar.chat.mediaConstraints = {
     'OfferToReceiveVideo':true
   }
 };
+darkStar.chat.textChannel = null;
 
 darkStar.chat.pc.onicecandidate = function(e) {
   if(e.candidate) {
@@ -122,7 +123,25 @@ darkStar.chat.pc.onaddstream = function(e) {
   videoEl.play();
 };
 
+darkStar.chat.setupChat = function() {
+  darkStar.chat.textChannel.onopen = function() {
+    console.log("text channel opened!");
+  }
+
+  darkStar.chat.textChannel.onmessage = function(event) {
+    console.log(event);
+  }
+}
+
 darkStar.chat.broadcast = function() {
+  if (!darkStar.chat.textChannel) {
+    darkStar.chat.textChannel = darkStar.chat.pc.createDataChannel('chat');
+    darkStar.chat.setupChat();
+  }
+  darkStar.chat.pc.ondatachannel = function(event) {
+    darkStar.chat.textChannel = event.channel;
+    darkStar.chat.setupChat();
+  }
   navigator.getUserMedia({audio: true, video: true}, function(s) {
     darkStar.chat.stream = s;
     darkStar.chat.pc.addStream(s);
