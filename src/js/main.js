@@ -131,6 +131,7 @@ darkStar.chat.setupChat = function() {
   var messagesEl = document.getElementById("messages-div");
   darkStar.chat.textChannel.onmessage = function(event) {
     messagesEl.value += "< " + event.data + "\n";
+    darkStar.main.speak(event.data);
     messagesEl.scrollTop = messagesEl.scrollHeight;
   }
 
