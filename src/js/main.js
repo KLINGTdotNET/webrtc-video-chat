@@ -1,5 +1,11 @@
 'use strict';
 
+navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
+
+window.RTCIceCandidate = window.RTCIceCandidate || window.webkitRTCIceCandidate || window.mozRTCIceCandidate;
+window.RTCPeerConnection = window.RTCPeerConnection || window.webkitRTCPeerConnection || window.mozRTCPeerConnection;
+window.RTCSessionDescription = window.RTCSessionDescription || window.webkitRTCSessionDescription || window.mozRTCSessionDescription;
+
 var darkStar = {};
 
 darkStar.main = function(){
@@ -64,7 +70,7 @@ darkStar.chat.socket.onmessage = function(message) {
           type: 'received_answer', 
           data: description
         }));
-      }, null, darkStar.chat.mediaConstraints);
+      }, function(){}, darkStar.chat.mediaConstraints);
       break;
     case 'received_answer' :
       console.log('received answer');
@@ -86,7 +92,7 @@ darkStar.chat.socket.onmessage = function(message) {
 };
 
 darkStar.chat.stunServer = "172.24.83.128";
-darkStar.chat.pc = new webkitRTCPeerConnection({"iceServers": [{"url": "stun:" + darkStar.chat.stunServer + ":3478"}]});
+darkStar.chat.pc = new RTCPeerConnection({"iceServers": [{"url": "stun:" + darkStar.chat.stunServer + ":3478"}]});
 darkStar.chat.stream = null;
 darkStar.chat.connected = false;
 darkStar.chat.mediaConstraints = {
@@ -112,17 +118,14 @@ darkStar.chat.pc.onicecandidate = function(e) {
 darkStar.chat.pc.onaddstream = function(e) {
   console.log('start remote video stream');
   var videoEl = document.getElementById("video");
-  videoEl.src = webkitURL.createObjectURL(e.stream);
+  videoEl.src = URL.createObjectURL(e.stream);
   videoEl.play();
 };
 
 darkStar.chat.broadcast = function() {
-  // gets local video stream and renders to vid1
-  navigator.webkitGetUserMedia({audio: true, video: true}, function(s) {
+  navigator.getUserMedia({audio: true, video: true}, function(s) {
     darkStar.chat.stream = s;
     darkStar.chat.pc.addStream(s);
-    // vid1.src = webkitURL.createObjectURL(s);
-    // vid1.play();
     // initCall is set in views/index and is based on if there is another person in the room to connect to
     // if(initCall)
       darkStar.chat.start();
@@ -141,7 +144,7 @@ darkStar.chat.start = function() {
       type: 'received_offer',
       data: description
     }));
-  }, null, darkStar.chat.mediaConstraints);
+  }, function(){}, darkStar.chat.mediaConstraints);
 }
 
 window.onload = function() {
