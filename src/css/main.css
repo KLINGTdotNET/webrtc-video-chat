@@ -8,11 +8,9 @@
     src: url('../fonts/fs_blok.ttf');
 }
 
-html {
-    -webkit-text-size-adjust:none;
-    -ms-text-size-adjust:none;
-    -moz-text-size-adjust:none;
-    text-size-adjust:none;
+@font-face {
+    font-family: "Open24DisplaySt";
+    src: url('../fonts/Open24DisplaySt.ttf');
 }
 
 body {
@@ -26,7 +24,7 @@ body {
 }
 
 .ds-sans {
-    font-family: "fs_blok", "Ericssong", monospace;
+    font-family: "Open24DisplaySt", "fs_blok", "Ericssong", monospace;
     font-size: 22px;
 }
 
