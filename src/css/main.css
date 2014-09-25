@@ -1,3 +1,13 @@
+@font-face {
+    font-family: "Ericssong";
+    src: url('../fonts/ericssonga628.TTF');
+}
+
+@font-face {
+    font-family: "fs_blok";
+    src: url('../fonts/fs_blok.ttf');
+}
+
 body {
     width: 100%;
     margin: 0;
@@ -9,8 +19,8 @@ body {
 }
 
 .ds-sans {
-    font-family: "Droid Sans", "Calibri", sans-serif;
-    font-size: 20px;
+    font-family: "fs_blok", "Ericssong", monospace;
+    font-size: 22px;
 }
 
 .ds-video {
@@ -27,17 +37,33 @@ body {
     width: 95%;
     padding: 3px 7px;
     margin: 10px 0 5px 0;
-    border: 1px solid #AAAAAA;
+    border: 1px solid #333;
+    border-left: 4px solid greenyellow;
+    background-color: #777;
+    color: greenyellow;
     border-radius: 4px;
     resize: none;
+}
+
+.ds-messages:hover {
 }
 
 .ds-message {
     width: 95%;
     padding: 3px 7px;
-    border: 1px solid #AAAAAA;
+    border: 1px solid #333;
+    border-left: 4px solid greenyellow;
+    background-color: #777;
+    color: greenyellow;
     border-radius: 4px;
     margin: 5px 0 10px 0;
+}
+
+.ds-message:hover {
+    border-color: greenyellow;
+    -webkit-box-shadow: 0px 0px 7px 0px greenyellow;
+    -moz-box-shadow:    0px 0px 7px 0px greenyellow;
+    box-shadow:         0px 0px 7px 0px greenyellow;
 }
 
 .ds-inset-shadow {

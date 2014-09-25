@@ -28,4 +28,5 @@ darkStar.main = function(){
     }
 }();
 
+// initial resize
 darkStar.main.resizeChatDiv();
