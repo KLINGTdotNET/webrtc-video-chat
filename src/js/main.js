@@ -128,8 +128,18 @@ darkStar.chat.setupChat = function() {
     console.log("text channel opened!");
   }
 
+  var messagesEl = document.getElementById("messages-div");
   darkStar.chat.textChannel.onmessage = function(event) {
-    console.log(event);
+    messagesEl.value += "< " + event.data + "\n";
+    messagesEl.scrollTop = messagesEl.scrollHeight;
+  }
+
+  var messageInputEl = document.getElementById("message-div");
+  messageInputEl.onchange = function() {
+    darkStar.chat.textChannel.send(messageInputEl.value);
+    messagesEl.value += "> " + messageInputEl.value + "\n";
+    messagesEl.scrollTop = messagesEl.scrollHeight;
+    messageInputEl.value = "";
   }
 }
 
