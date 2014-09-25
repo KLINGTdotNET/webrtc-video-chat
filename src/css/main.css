@@ -26,7 +26,6 @@ body {
 .ds-video {
     height: calc((100vw/16)*9);
     max-height: 70vh;
-    background-color: #333;
 }
 
 .ds-chat {
@@ -67,6 +66,7 @@ body {
 .ds-message:focus {
     border-left: 4px solid greenyellow;
     border-color: greenyellow;
+    padding-left: 4px;
     outline: none;
 }
 
