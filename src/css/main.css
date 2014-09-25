@@ -1,7 +1,53 @@
-.video {
-
+body {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background: url(../img/stardust/stardust.png) top left repeat #333;
 }
 
-.chat {
+.ds-grid {
+}
 
+.ds-sans {
+    font-family: "Droid Sans", "Calibri", sans-serif;
+    font-size: 20px;
+}
+
+.ds-video {
+    height: calc((100vw/16)*9);
+    max-height: 70vh;
+    background-color: #333;
+}
+
+.ds-chat {
+    text-align: center;
+}
+
+.ds-messages {
+    width: 95%;
+    padding: 3px 7px;
+    margin: 10px 0 5px 0;
+    border: 1px solid #AAAAAA;
+    border-radius: 4px;
+    resize: none;
+}
+
+.ds-message {
+    width: 95%;
+    padding: 3px 7px;
+    border: 1px solid #AAAAAA;
+    border-radius: 4px;
+    margin: 5px 0 10px 0;
+}
+
+.ds-inset-shadow {
+    -webkit-box-shadow: inset 0px 0px 7px 0px rgba(50, 50, 50, 0.75);
+    -moz-box-shadow:    inset 0px 0px 7px 0px rgba(50, 50, 50, 0.75);
+    box-shadow:         inset 0px 0px 7px 0px rgba(50, 50, 50, 0.75);
+}
+
+.ds-vcenter {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
 }

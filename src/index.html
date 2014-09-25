@@ -4,12 +4,17 @@
     <link href="./css/main.css" media="all" rel="stylesheet" type="text/css">
 </head>
 <body>
-    <div class="video">
+    <div class="ds-grid">
+        <div class="ds-video" id="video-div">
+        </div>
+        <div class="ds-chat" id="chat-div">
+            <div class="ds-vcenter">
+                <textarea name="chat" id="messages-div" class="ds-messages ds-sans ds-inset-shadow"></textarea>
+                <input type="text" id="message-div" placeholder="Sag etwas ..." name="message" class="ds-message ds-sans ds-inset-shadow">
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="chat">
-        <<textarea name="chat">
-
-        </textarea>
-    </div>
+    <script src="./js/main.js"></script>
 </body>
 </html>
