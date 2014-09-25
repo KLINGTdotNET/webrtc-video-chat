@@ -2,6 +2,11 @@
 
 ## Requirements
 
+## Ideas
+
+- play received text using [mespeak.js](http://www.masswerk.at/mespeak/) or similar
+- console using green-on-black "hacker" style
+
 ## Installation
 
 ## WebRTC
