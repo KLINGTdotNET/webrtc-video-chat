@@ -13,6 +13,11 @@
     src: url('../fonts/Open24DisplaySt.ttf');
 }
 
+@font-face {
+    font-family: "DOTMATRI";
+    src: url('../fonts/DOTMATRI.TTF');
+}
+
 body {
     width: 100%;
     margin: 0;
@@ -24,7 +29,7 @@ body {
 }
 
 .ds-sans {
-    font-family: "Open24DisplaySt", "fs_blok", "Ericssong", monospace;
+    font-family: "DOTMATRI", "fs_blok", "Ericssong", monospace;
     font-size: 22px;
 }
 
