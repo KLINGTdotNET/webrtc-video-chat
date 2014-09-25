@@ -9,6 +9,12 @@
 
 ## Installation
 
+- install node
+- `npm install`
+- `node server`
+
+now go to <http://localhost:3002> and have fun!
+
 ## WebRTC
 
 ```javascript
