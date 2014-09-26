@@ -49,8 +49,7 @@ darkStar.main.resizeChatDiv();
 
 darkStar.chat = {};
 
-// the socket handles sending messages between peer connections while they are in the 
-// process of connecting
+// the socket handles sending messages between peer connections while they are in the process of connecting
 darkStar.chat.socket = new WebSocket('ws://' + window.location.host + window.location.pathname);
 
 darkStar.chat.socket.onmessage = function(message) {
@@ -60,14 +59,14 @@ darkStar.chat.socket.onmessage = function(message) {
     case 'assigned_id' :
       darkStar.chat.socket.id = msg.id;
       break;
-    case 'received_offer' : 
+    case 'received_offer' :
       console.log('received offer', msg.data);
       darkStar.chat.pc.setRemoteDescription(new RTCSessionDescription(msg.data));
       darkStar.chat.pc.createAnswer(function(description) {
         console.log('sending answer');
-        darkStar.chat.pc.setLocalDescription(description); 
+        darkStar.chat.pc.setLocalDescription(description);
         darkStar.chat.socket.send(JSON.stringify({
-          type: 'received_answer', 
+          type: 'received_answer',
           data: description
         }));
       }, function(){}, darkStar.chat.mediaConstraints);
@@ -91,13 +90,13 @@ darkStar.chat.socket.onmessage = function(message) {
   }
 };
 
-darkStar.chat.stunServer = "172.24.83.128";
+darkStar.chat.stunServer = "172.24.83.128"; // modify!
 darkStar.chat.pc = new RTCPeerConnection({"iceServers": [{"url": "stun:" + darkStar.chat.stunServer + ":3478"}]});
 darkStar.chat.stream = null;
 darkStar.chat.connected = false;
 darkStar.chat.mediaConstraints = {
   'mandatory': {
-    'OfferToReceiveAudio':true, 
+    'OfferToReceiveAudio':true,
     'OfferToReceiveVideo':true
   }
 };
@@ -156,8 +155,7 @@ darkStar.chat.broadcast = function() {
   navigator.getUserMedia({audio: true, video: true}, function(s) {
     darkStar.chat.stream = s;
     darkStar.chat.pc.addStream(s);
-    // initCall is set in views/index and is based on if there is another person in the room to connect to
-    // if(initCall)
+    // initCall is set in views/index and is based on if there is another person in the room to connect to if(initCall)
       darkStar.chat.start();
   }, function (error) {
     try {

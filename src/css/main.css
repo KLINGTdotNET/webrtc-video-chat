@@ -1,19 +1,4 @@
 @font-face {
-    font-family: "Ericssong";
-    src: url('../fonts/ericssonga628.TTF');
-}
-
-@font-face {
-    font-family: "fs_blok";
-    src: url('../fonts/fs_blok.ttf');
-}
-
-@font-face {
-    font-family: "Open24DisplaySt";
-    src: url('../fonts/Open24DisplaySt.ttf');
-}
-
-@font-face {
     font-family: "DOTMATRI";
     src: url('../fonts/DOTMATRI.TTF');
 }
@@ -29,7 +14,7 @@ body {
 }
 
 .ds-sans {
-    font-family: "DOTMATRI", "fs_blok", "Ericssong", monospace;
+    font-family: "DOTMATRI", monospace;
     font-size: 22px;
 }
 
@@ -98,5 +83,5 @@ body {
 }
 
 .ds-video-filter {
-    -webkit-filter: contrast(1.4) brightness(1.4);
+    /*-webkit-filter: contrast(1.4) brightness(1.4);*/
 }
