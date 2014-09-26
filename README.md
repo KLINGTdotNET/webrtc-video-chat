@@ -9,6 +9,15 @@
 
 ## Installation
 
+- install node
+- `npm install`
+- `node server`
+
+now go to <http://localhost:3002> and have fun!
+
+if it doesn't work, try it with a recent chrome and/or install [Stuntman](http://www.stunprotocol.org/)
+and change the ip address in `main.js` (`darkStar.chat.stunServer = "YOUR_IP_HERE";`).
+
 ## WebRTC
 
 ```javascript
